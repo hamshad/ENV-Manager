@@ -1,25 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Catppuccin Mocha */
+  --ctp-base: #1e1e2e;
+  --ctp-mantle: #181825;
+  --ctp-crust: #11111b;
+  --ctp-surface0: #313244;
+  --ctp-surface1: #45475a;
+  --ctp-surface2: #585b70;
+  --ctp-overlay0: #6c7086;
+  --ctp-overlay1: #7f849c;
+  --ctp-overlay2: #9399b2;
+  --ctp-subtext0: #a6adc8;
+  --ctp-subtext1: #bac2de;
+  --ctp-text: #cdd6f4;
+  --ctp-lavender: #b4befe;
+  --ctp-blue: #89b4fa;
+  --ctp-sapphire: #74c7ec;
+  --ctp-sky: #89dceb;
+  --ctp-teal: #94e2d5;
+  --ctp-green: #a6e3a1;
+  --ctp-yellow: #f9e2af;
+  --ctp-peach: #fab387;
+  --ctp-maroon: #eba0ac;
+  --ctp-red: #f38ba8;
+  --ctp-mauve: #cba6f7;
+  --ctp-pink: #f5c2e7;
+  --ctp-flamingo: #f2cdcd;
+  --ctp-rosewater: #f5e0dc;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-monts: var(--font-montserrat, sans-serif);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--ctp-base);
+  color: var(--ctp-text);
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.heading {
+  font-family: "Montserrat", sans-serif;
+}
+
+.body-text {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ctp-surface0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ctp-overlay0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ctp-overlay1);
+}
+
+/* GitHub-like button styles */
+.btn-primary {
+  background-color: var(--ctp-green);
+  color: var(--ctp-base);
+  border: 1px solid var(--ctp-green);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--ctp-teal);
+  border-color: var(--ctp-teal);
+}
+
+.btn-secondary {
+  background-color: var(--ctp-surface0);
+  color: var(--ctp-text);
+  border: 1px solid var(--ctp-surface1);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--ctp-surface1);
+  border-color: var(--ctp-surface2);
+}
+
+/* GitHub-like input styles */
+.input-field {
+  background-color: var(--ctp-surface0);
+  border: 1px solid var(--ctp-surface1);
+  color: var(--ctp-text);
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--ctp-blue);
+  box-shadow: 0 0 0 3px rgba(137, 180, 250, 0.1);
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: var(--ctp-overlay1);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--ctp-surface0);
+  border: 1px solid var(--ctp-surface1);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--ctp-surface2);
+}
+
+/* Activity item styles */
+.activity-item {
+  border-left: 2px solid var(--ctp-surface1);
+  padding-left: 16px;
+  position: relative;
+}
+
+.activity-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--ctp-blue);
+  border-radius: 50%;
 }
